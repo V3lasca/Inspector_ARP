@@ -5,5 +5,6 @@ I would like to give credit to [saintvic20](https://github.com/saintvic20/ARP-SP
 
 # Installation
 `cd Inspector_ARP
+
  python Inspector_ARP
 `
