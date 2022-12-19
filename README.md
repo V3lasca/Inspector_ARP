@@ -1,5 +1,5 @@
 # Inspector_ARP
-<img src='https://vignette.wikia.nocookie.net/mrrobot/images/1/1b/Dom_DiPierro.jpg/revision/latest?cb=20160715155239' width='25%'>
+<img src='https://vignette.wikia.nocookie.net/mrrobot/images/1/1b/Dom_DiPierro.jpg/revision/latest?cb=20160715155239' width='35%'>
 
 This program will help detect ARP poisoning attacks from a threat actor.
 
