@@ -1,5 +1,5 @@
 # Inspector_ARP
-<img src='(http://cdn.newsapi.com.au/image/v1/d9184ca6e0baf02362edcd2f0ed6a24c)' alt='Dom' height='600px' width='800px'>
+<img src='(http://cdn.newsapi.com.au/image/v1/d9184ca6e0baf02362edcd2f0ed6a24c)' alt='Dom'>
 
 This program will help detect ARP poisoning attacks from a threat actor.
 
