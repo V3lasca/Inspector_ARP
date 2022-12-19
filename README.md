@@ -1,5 +1,5 @@
 # Inspector_ARP
-<img src='https://vignette.wikia.nocookie.net/mrrobot/images/1/1b/Dom_DiPierro.jpg/revision/latest?cb=20160715155239' height='50%' width='50%'>
+<img src='https://vignette.wikia.nocookie.net/mrrobot/images/1/1b/Dom_DiPierro.jpg/revision/latest?cb=20160715155239' width='100%'>
 This program will help detect ARP poisoning attacks from a threat actor.
 
 I would like to give credit to [saintvic20](https://github.com/saintvic20/ARP-SPOOF-DETECTOR) during my research on creating this tool.
