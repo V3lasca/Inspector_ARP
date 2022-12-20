@@ -1,5 +1,5 @@
 # Inspector ARP
-<img src='Dom_DiPierro.jpg' width='45%'>
+<img src='Dom_DiPierro.jpg' width='40%'>
 
 This program will help detect ARP poisoning attacks from a threat actor.
 
