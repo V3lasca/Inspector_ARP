@@ -47,9 +47,9 @@ while True:
                 else:
                     print('\33[31mWrong System\33[0m')
             elif choice == 'help' or choice == '*':
-                print('\n[*] Type \'exit\' to quit program', '\n' +
-                    '[*] Enter words, numbers, or a symbol to use program', '\n' +
-                    '[*] Entering words are case-insensitive\n')
+                print('\n[*] Type \'exit\' to quit program',
+                      '\n[*] Enter words, numbers, or a symbol to use program',
+                      '\n[*] Entering words are case-insensitive\n')
             elif choice == 'exit':
                 exit()
             else:
