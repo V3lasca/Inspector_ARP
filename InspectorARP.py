@@ -4,7 +4,6 @@ import platform as p
 from re import findall
 
 while True:
-    print('\n')
     print('   ____                           __               ___    ___   ___ ')
     print('  /  _/___   ___  ___  ___  ____ / /_ ___   ____  / _ |  / _ \ / _ \\')
     print(' _/ / / _ \ (_-< / _ \/ -_)/ __// __// _ \ / __/ / __ | / , _// ___/')
