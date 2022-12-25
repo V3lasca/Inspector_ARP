@@ -1,4 +1,5 @@
 <h1>Inspector ARP</h1>
+
 <img src='Dom_DiPierro.jpg' width='35%'>
 
 This program will help detect ARP poisoning attacks from a threat actor.
@@ -12,7 +13,3 @@ git clone https://github.com/V3lasc/Inspector_ARP.git
 cd InspectorARP
 python InspectorARP
 ```
-<code>
-git clone https://github.com/V3lasc/Inspector_ARP.git
-cd InspectorARP
-python InspectorARP</code>
