@@ -2,7 +2,7 @@
 
 <img src='Dom_DiPierro.jpg' width='35%'>
 
-This program will help detect ARP poisoning attacks from a threat actor.
+This program will help detect ARP poisoning attacks from a threat actor (attacker).
 
 I would like to give credit to <a href='https://github.com/saintvic20/ARP-SPOOF-DETECTOR'>saintvic20<a/> during my research on creating this tool.
 
