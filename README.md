@@ -12,4 +12,7 @@ git clone https://github.com/V3lasc/Inspector_ARP.git
 cd InspectorARP
 python InspectorARP
 ```
-<code>asdf 'adf'</code>
+<code>
+git clone https://github.com/V3lasc/Inspector_ARP.git
+cd InspectorARP
+python InspectorARP</code>
