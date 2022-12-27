@@ -17,7 +17,7 @@ while True:
     print('\33[94m3) Windows\33[0m')
     print('*) Help\n')
 
-    # ARP table extraction
+    #ARP table extraction
     info = []
 
     def arpTable():
@@ -55,7 +55,7 @@ while True:
                 print('\33[31mWrong Input\33[0m')
     arpTable()
 
-    # Splits listTable
+    #Splits listTable
     listTable = ''
 
     for i in info:
@@ -66,7 +66,7 @@ while True:
         while 'ether' in listTable:
             listTable.remove('ether')
 
-    # Converts list into a dictionary
+    #Converts list into a dictionary
     ip_list = []
     mac_list = []
 
@@ -83,22 +83,22 @@ while True:
             global duplicate_mac_str
             global IP
 
-            # Groups IP addresses with same MAC address
+            #Groups IP addresses with same MAC address
             for key, value in filterTable.items():
                 checkTable.setdefault(value, set()).add(key)
 
-            # List of duplicate MAC address(s)
+            #List of duplicate MAC address(s)
             duplicate_mac = [key for key, value in checkTable.items() if len(value) > 1]
 
             for j in duplicate_mac:
                 duplicate_mac_str = str(j)
 
-            # Finds duplicate match in the checkTable dictionary
+            #Finds duplicate match in the checkTable dictionary
             if duplicate_mac_str in checkTable.keys():
                 IP = checkTable[duplicate_mac_str]
                 print('\n\33[31m[!]\33[0m', duplicate_mac_str, "was duplicated by:", IP)
             
-            # Logs event
+            #Logs event
             user_name = os.getlogin()
             date = dt.datetime.now()
 
