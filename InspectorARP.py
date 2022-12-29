@@ -18,30 +18,30 @@ while True:
     print('*) Help\n')
 
     #ARP table extraction
-    info = []
+    extr = []
 
     def arpTable():
-        global info
+        global extr
         while True:
             choice = input('\33[4mIARP\33[0m > ').lower()
             if choice == '1' or choice == 'linux':
                 if p.system()[0] == 'L':
-                    record = os.popen('arp -e').read()
-                    info = (findall('[0-9.]+\s+[a-z]+\s+[0-9:a-z]+', record))
+                    cache = os.popen('arp -e').read()
+                    extr = (findall('[0-9.]+\s+[a-z]+\s+[0-9:a-z]+', cache))
                     break
                 else:
                     print('\33[31mWrong System\33[0m')
             elif choice == '2' or choice == 'macos':
                 if p.system()[0] == 'D':
-                    record = os.popen('arp -e').read()
-                    info = (findall('[0-9.]+\s+[a-z]+\s+[0-9:a-z]+', record))
+                    cache = os.popen('arp -e').read()
+                    extr = (findall('[0-9.]+\s+[a-z]+\s+[0-9:a-z]+', cache))
                     break
                 else:
                     print('\33[31mWrong System\33[0m')
             elif choice == '3' or choice == 'windows':
                 if p.system()[0] == 'W':
-                    record = os.popen('arp -a').read()
-                    info = (findall('[0-9.]+\s+[0-9-a-z]{17}', record))
+                    cache = os.popen('arp -a').read()
+                    extr = (findall('[0-9.]+\s+[0-9-a-z]{17}', cache))
                     break
                 else:
                     print('\33[31mWrong System\33[0m')
@@ -58,7 +58,7 @@ while True:
     #Splits listTable
     listTable = ''
 
-    for i in info:
+    for i in extr:
         listTable += i + ' '
     listTable = listTable.split()
 
