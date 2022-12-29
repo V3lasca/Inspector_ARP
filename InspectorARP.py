@@ -80,9 +80,7 @@ while True:
     def duplicateMAC():
         try:
             checkTable = {}
-            global duplicate_mac_str
-            global IP
-
+            
             #Groups IP addresses with same MAC address
             for key, value in filterTable.items():
                 checkTable.setdefault(value, set()).add(key)
