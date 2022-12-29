@@ -106,17 +106,17 @@ while True:
                 print('\n\33[92m[+]\33[0m \"ALERT\" file was created in desktop')
                 with open('/home/' + user_name + '/Desktop/ALERT.txt', 'a') as file:
                     file.write(dt.strftime('%A, %B %d, %Y / %I:%M %p') + '\n' + 
-                            duplicate_mac_str + ' was duplicated by > ' + str(IP) + '\n')
+                               duplicate_mac_str + ' was duplicated by > ' + str(IP) + '\n')
             elif p.system()[0] == 'D':
                 print('\n\33[92m[+]\33[0m \"ALERT\" file was created in desktop')
                 with open('/Users/' + user_name + '/Desktop/ALERT.txt', 'a') as file:
                     file.write(dt.strftime('%A, %B %d, %Y / %I:%M %p') + '\n' + 
-                            duplicate_mac_str + ' was duplicated by > ' + str(IP) + '\n')
+                               duplicate_mac_str + ' was duplicated by > ' + str(IP) + '\n')
             elif p.system()[0] == 'W':
                 print('\n\33[92m[+]\33[0m \"ALERT\" file was created in desktop')
                 with open('/Users/' + user_name + '/Desktop/ALERT.txt', 'a') as file:
                     file.write(dt.strftime('%A, %B %d, %Y / %I:%M %p') + '\n' + 
-                            duplicate_mac_str + ' was duplicated by > ' + str(IP) + '\n')
+                               duplicate_mac_str + ' was duplicated by > ' + str(IP) + '\n')
         except:
             print('\n\33[94m[*]\33[0m No ARP Spoofing Attack Detected')
     duplicateMAC()
