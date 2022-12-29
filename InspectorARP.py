@@ -122,5 +122,5 @@ while True:
     duplicateMAC()
     
     retry = input('\n\33[4mIARP\33[0m > Test again? (y/n): ')
-    if retry != 'y':
-        break
+    if retry != 'y': break
+    elif platform.system()[0] == 'L': os.system('clear')
