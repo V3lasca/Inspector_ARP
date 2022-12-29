@@ -1,7 +1,7 @@
 from datetime import datetime
+from re import findall
 import os
 import platform as p
-from re import findall
 
 while True:
     print('   ____                           __               ___    ___   ___ ')
