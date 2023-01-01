@@ -24,7 +24,7 @@ while True:
         global extr
         while True:
             choice = input('\33[4mIARP\33[0m > ').lower()
-            if choice == '1' or choice == 'linux':
+            if choice == '1' or choice == 'linux': 
                 if p.system()[0] == 'L':
                     cache = os.popen('arp -e').read()
                     extr = (findall('[0-9.]+\s+[a-z]+\s+[0-9:a-z]+', cache))
@@ -49,10 +49,8 @@ while True:
                 print('\n[*] Type \'exit\' to quit program',
                       '\n[*] Enter words, numbers, or a symbol to use program',
                       '\n[*] Entering words are case-insensitive\n')
-            elif choice == 'exit':
-                exit()
-            else:
-                print('\33[31mWrong Input\33[0m')
+            elif choice == 'exit': exit()
+            else: print('\33[31mWrong Input\33[0m')
     arpTable()
 
     #Splits listTable
