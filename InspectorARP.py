@@ -121,4 +121,5 @@ while True:
     
     retry = input('\n\33[4mIARP\33[0m > Test again? (y/n): ')
     if retry != 'y': break
-    elif p.system()[0] == 'L': os.system('clear')
+    elif p.system()[0] == 'L' or p.system()[0] == 'D': os.system('clear')
+    elif p.system()[0] == 'W': os.system('cls')
