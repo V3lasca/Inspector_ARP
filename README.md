@@ -1,6 +1,6 @@
 <h1>InspectorARP</h1>
 
-<img width='5em' src='Dom_DiPierro.jpg' alt='Dominique "Dom" DiPierro'>
+<img width='5cm' src='Dom_DiPierro.jpg' alt='Dominique "Dom" DiPierro'>
 
 This program will help detect ARP poisoning attacks from a threat actor (attacker).
 
