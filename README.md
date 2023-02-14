@@ -1,7 +1,7 @@
 <h1>InspectorARP</h1>
 
 <div align='center'>
-  <img max-width='300' src='Dom_DiPierro.jpg' alt='Dominique "Dom" DiPierro'>
+  <img width='300' src='Dom_DiPierro.jpg' alt='Dominique "Dom" DiPierro'>
 </div>
 
 <br>
