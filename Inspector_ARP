@@ -65,8 +65,8 @@ while True:
                                          + win + '\n' + help)
             elif choice == 'cls': 
                 if p.system()[0] == 'L': os.system('clear'); print(logo)
-                elif p.system()[0] == 'M': os.system('clear'); print(logo)              
-                else: os.system('cls'); print(logo)          
+                elif p.system()[0] == 'D': os.system('clear'); print(logo)              
+                elif p.system()[0] == 'W': os.system('cls'); print(logo)          
             else: print(Fore.RED + 'Wrong Input')
     arpTableExtraction()
 
@@ -125,28 +125,28 @@ while True:
                 user_name = os.getlogin()
                 choice = input('\nDo you want to save event as a text file? (y/n) > ').lower()
                 if choice != 'y':
-                    if p.system()[0] == 'L': os.system('cls'); print(logo)
-                    elif p.system()[0] == 'D': os.system('cls'); print(logo)
+                    if p.system()[0] == 'L': os.system('clear'); print(logo)
+                    elif p.system()[0] == 'D': os.system('clear'); print(logo)
                     elif p.system()[0] == 'W': os.system('cls'); print(logo)
                 elif p.system()[0] == 'L':
                     print(Fore.GREEN + '\n[+]', '\"ALERT\" file was created in the desktop directory')
                     with open('/home/' + user_name + '/Desktop/ALERT.txt', 'a') as file:
-                        file.write(f'{dt}\n{duplicate_mac} belongs to > {IP} \n\n')
+                        file.write(f'{dt}\n{duplicate_mac} belongs to > {IP}\n\n')
                 elif p.system()[0] == 'D':
                     print(Fore.GREEN + '\n[+]', '\"ALERT\" file was created in the desktop directory')
                     with open('/Users/' + user_name + '/Desktop/ALERT.txt', 'a') as file:
-                        file.write(f'{dt}\n{duplicate_mac} belongs to > {IP} \n\n')
+                        file.write(f'{dt}\n{duplicate_mac} belongs to > {IP}\n\n')
                 elif p.system()[0] == 'W':
                     path = 'C:/Users/' + user_name + '/OneDrive/Desktop'
 
                     if os.path.exists(path):
                         print(Fore.GREEN + '\n[+]', '\"ALERT\" file was created in the desktop directory')
                         with open('/Users/' + user_name + '/OneDrive/Desktop/ALERT.txt', 'a') as file:
-                            file.write(f'{dt}\n{duplicate_mac} belongs to > {IP} \n\n')
+                            file.write(f'{dt}\n{duplicate_mac} belongs to > {IP}\n\n')
                     else:
                         print(Fore.GREEN + '\n[+]', '\"ALERT\" file was created in the desktop directory')
                         with open('/Users/' + user_name + '/Desktop/ALERT.txt', 'a') as file:
-                            file.write(f'{dt}\n{duplicate_mac} belongs to > {IP} \n\n')
+                            file.write(f'{dt}\n{duplicate_mac} belongs to > {IP}\n\n')
         except Exception: 
             print(Fore.CYAN + '\n[-]', 'No ARP Spoofing Attack Detected')
     duplicateMAC()
