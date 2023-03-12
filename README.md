@@ -15,5 +15,5 @@ I would like to give credit to <a href='https://github.com/saintvic20/ARP-SPOOF-
 ```
 git clone https://github.com/V3lasc/Inspector_ARP.git
 cd Inspector_ARP
-python3 InspectorARP.py
+python3 Inspector_ARP.py
 ```
