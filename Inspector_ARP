@@ -76,7 +76,6 @@ while True:
     for i in extr: listTable += i + ' '
     listTable = listTable.split()
 
-
     #Removes HWtype(type of link) from ARP cache
     listTable = [i for i in listTable if i != 'ether']
 
