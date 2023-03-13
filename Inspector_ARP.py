@@ -33,42 +33,45 @@ while True:
     def arpTableExtraction():
         global extr
         while True:
-            choice = input('\n\033[4mIARP\033[0m > ').lower()
-            if choice == '1' or choice == 'linux':
-                if p.system()[0] == 'L':
-                    cache = os.popen('arp -e').read()
-                    extr = findall('[0-9.]+\s+[a-z]+\s+[0-9:a-z]{17}', cache)
-                    break
-                else:
-                    print(Fore.RED + 'Wrong System')
-            elif choice == '2' or choice == 'macos':
-                if p.system()[0] == 'D':
-                    cache = os.popen('arp -e').read()
-                    extr = findall('[0-9.]+\s+[a-z]+\s+[0-9:a-z]{17}', cache)
-                    break
-                else:
-                    print(Fore.RED + 'Wrong System')
-            elif choice == '3' or choice == 'windows':
-                if p.system()[0] == 'W':
-                    cache = os.popen('arp -a').read()
-                    extr = findall('[0-9.]+\s+[0-9-a-z]{17}', cache)
-                    break
-                else:
-                    print(Fore.RED + 'Wrong System')
-            elif choice == 'help' or choice == '*':
-                print(Fore.MAGENTA + '\n[*]', 'Type "cls" to clear screen',
-                      Fore.MAGENTA + '\n[*]', 'Type "exit" to exit program',
-                      Fore.MAGENTA + '\n[*]', 'Type "menu" to show options',
-                      Fore.MAGENTA + '\n[*]', 'Enter words, numbers, or a symbol to use program',
-                      Fore.MAGENTA + '\n[*]', 'Entering words are case-insensitive')
-            elif choice == 'exit': exit()
-            elif choice == 'menu': print('\n' + menu + '\n' + linux + '\n' + mac + '\n'
-                                          + win + '\n' + help)
-            elif choice == 'cls': 
-                if p.system()[0] == 'L': os.system('clear'); print(logo)
-                elif p.system()[0] == 'D': os.system('clear'); print(logo)              
-                elif p.system()[0] == 'W': os.system('cls'); print(logo)          
-            else: print(Fore.RED + 'Wrong Input')
+            try:
+                choice = input('\n\033[4mIARP\033[0m > ').lower()
+                if choice == '1' or choice == 'linux':
+                    if p.system()[0] == 'L':
+                        cache = os.popen('arp -n').read()
+                        extr = findall('[0-9.]+\s+[a-z]+\s+[0-9:a-z]{17}', cache)
+                        break
+                    else:
+                        print(Fore.RED + 'Wrong System')
+                elif choice == '2' or choice == 'macos':
+                    if p.system()[0] == 'D':
+                        cache = os.popen('arp -n').read()
+                        extr = findall('[0-9.]+\s+[a-z]+\s+[0-9:a-z]{17}', cache)
+                        break
+                    else:
+                        print(Fore.RED + 'Wrong System')
+                elif choice == '3' or choice == 'windows':
+                    if p.system()[0] == 'W':
+                        cache = os.popen('arp -a').read()
+                        extr = findall('[0-9.]+\s+[0-9-a-z]{17}', cache)
+                        break
+                    else:
+                        print(Fore.RED + 'Wrong System')
+                elif choice == 'help' or choice == '*':
+                    print(Fore.MAGENTA + '\n[*]', 'Type "cls" to clear screen',
+                          Fore.MAGENTA + '\n[*]', 'Type "exit" to exit program',
+                          Fore.MAGENTA + '\n[*]', 'Type "menu" to show options',
+                          Fore.MAGENTA + '\n[*]', 'Enter words, numbers, or a symbol to use program',
+                          Fore.MAGENTA + '\n[*]', 'Entering words are case-insensitive')
+                elif choice == 'exit': exit()
+                elif choice == 'menu': print('\n' + menu + '\n' + linux + '\n' + mac + '\n'
+                                              + win + '\n' + help)
+                elif choice == 'cls': 
+                    if p.system()[0] == 'L': os.system('clear'); print(logo)
+                    elif p.system()[0] == 'D': os.system('clear'); print(logo)              
+                    elif p.system()[0] == 'W': os.system('cls'); print(logo)          
+                else: print(Fore.RED + 'Wrong Input')
+            except KeyboardInterrupt:
+                exit()
     arpTableExtraction()
 
     listTable = ''
@@ -89,7 +92,7 @@ while True:
         else:
             ip_list.append((listTable[k]))
     filterTable = dict(zip(ip_list, mac_list))
-   
+    
     def duplicateMAC():
         checkTable = {}
 
