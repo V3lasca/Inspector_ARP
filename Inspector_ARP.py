@@ -70,7 +70,6 @@ while True:
                 elif p.system()[0] == 'W': os.system('cls'); print(logo)          
             else: print(Fore.RED + 'Wrong Input')
     arpTableExtraction()
-    print('\n1',extr)
 
     listTable = ''
 
@@ -79,7 +78,6 @@ while True:
     listTable = listTable.split()
 
     listTable = [i for i in listTable if i != 'ether']
-    print('\n2', listTable)
 
     ip_list = []
     mac_list = []
@@ -91,31 +89,25 @@ while True:
         else:
             ip_list.append((listTable[k]))
     filterTable = dict(zip(ip_list, mac_list))
-
-    print('\n3', filterTable)
-    
+   
     def duplicateMAC():
         checkTable = {}
 
         #Groups IP addresses with same MAC address
         for key, value in filterTable.items():
             checkTable.setdefault(value, set()).add(key)
-        print('\n4', checkTable)
         
         #Removes broadcast address
         while 'ff-ff-ff-ff-ff-ff' in checkTable:
             checkTable.pop('ff-ff-ff-ff-ff-ff')
         while 'ff:ff:ff:ff:ff:ff' in checkTable:
             checkTable.pop('ff:ff:ff:ff:ff:ff')
-        print('\n5', checkTable)
 
         #List of duplicate MAC address(es)
         duplicate_mac = [key for key, value in checkTable.items() if len(value) > 1]
-        print('\n6', duplicate_mac)
 
         for j in duplicate_mac:
             duplicate_mac = str(j)
-        print('\n7', duplicate_mac)
 
         try:
             #Finds duplicate match in the checkTable dictionary
