@@ -124,7 +124,7 @@ while True:
                 #Logs event
                 user_name = os.getlogin()
                 choice = input('\nDo you want to save event as a text file? (y/n) > ').lower()
-                if choice != 'y' or choice != 'yes':
+                if choice != 'y' and choice != 'yes':
                     if p.system()[0] == 'L': os.system('clear'); print(logo)
                     elif p.system()[0] == 'D': os.system('clear'); print(logo)
                     elif p.system()[0] == 'W': os.system('cls'); print(logo)
