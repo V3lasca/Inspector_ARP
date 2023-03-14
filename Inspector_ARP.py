@@ -26,7 +26,7 @@ help = (Fore.WHITE + '*) Help'); print(help)
 while True:
     extr = []
     
-    #ARP table extraction
+    #Extracts ARP cache
     def arpTableExtraction():
         global extr
         while True:
@@ -76,7 +76,8 @@ while True:
     #Splits list
     for i in extr: listTable += i + ' '
     listTable = listTable.split()
-
+    
+    #Removes HWtype (type of link) from list
     listTable = [i for i in listTable if i != 'ether']
 
     ip_list = []
