@@ -115,8 +115,8 @@ while True:
             if duplicate_mac in checkTable.keys():
                 IP = checkTable[duplicate_mac]
                 IP = ', '.join(IP)
-                print('\n[!] ARP Spoof Detected')
-                print(f'\n[!] {duplicate_mac} belongs to: {IP}')
+                print(Fore.RED + '\n[!]', 'ARP Spoof Detected')
+                print(Fore.RED + '\n[!]', f'{duplicate_mac} belongs to: {IP}')
 
                 #Date and time
                 dt = datetime.now().strftime('%A, %B %d, %Y / %I:%M %p')
