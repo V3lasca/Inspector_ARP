@@ -14,12 +14,9 @@ print(logo := '''
                /_/
 ''')
 
-menu = (
-'+' + '-' * 38 + '+\n' +
-'| Which system do you wish to test on? |\n'
-'+' + '-' * 38 + '+')
-
-menu = (Fore.YELLOW + menu); print(menu)
+menu = (Fore.YELLOW + '+' + '-' * 38 + '+\n'
+        '| Which system do you wish to test on? |\n'
+        '+' + '-' * 38 + '+'); print(menu)
 
 linux = (Fore.GREEN + '1) Linux'); print(linux)
 mac = (Fore.RED + '2) macOS'); print(mac)
