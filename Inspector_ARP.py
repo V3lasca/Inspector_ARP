@@ -24,8 +24,8 @@ win = (Fore.BLUE + '3) Windows'); print(win)
 help = (Fore.WHITE + '*) Help'); print(help)
 
 while True:
-    
     extr = []
+    
     #ARP table extraction
     def arpTableExtraction():
         global extr
