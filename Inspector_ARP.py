@@ -14,14 +14,14 @@ print(logo := '''
                /_/
 ''')
 
-menu = (Fore.YELLOW + '+' + '-' * 38 + '+\n'
+print(menu := Fore.YELLOW + '+' + '-' * 38 + '+\n'
         '| Which system do you wish to test on? |\n'
-        '+' + '-' * 38 + '+'); print(menu)
+        '+' + '-' * 38 + '+')
 
-linux = (Fore.GREEN + '1) Linux'); print(linux)
-mac = (Fore.RED + '2) macOS'); print(mac)
-win = (Fore.BLUE + '3) Windows'); print(win)
-help = (Fore.WHITE + '*) Help'); print(help)
+print(linux := Fore.GREEN + '1) Linux')
+print(mac := Fore.RED + '2) macOS')
+print(win := Fore.BLUE + '3) Windows')
+print(help := Fore.WHITE + '*) Help')
 
 while True:
     extr = []
