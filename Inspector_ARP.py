@@ -106,8 +106,7 @@ while True:
         #List of duplicate MAC address(es)
         duplicate_mac = [key for key, value in checkTable.items() if len(value) > 1]
 
-        for j in duplicate_mac:
-            duplicate_mac = str(j)
+        for j in duplicate_mac: duplicate_mac = str(j)
 
         try:
             #Finds duplicate match in the checkTable dictionary
