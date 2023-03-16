@@ -103,48 +103,48 @@ while True:
         while 'ff:ff:ff:ff:ff:ff' in checkTable:
             checkTable.pop('ff:ff:ff:ff:ff:ff')
 
-        #List of duplicate MAC address(es)
+        #List of duplicate MAC addresses
         duplicate_mac = [key for key, value in checkTable.items() if len(value) > 1]
 
         for j in duplicate_mac: duplicate_mac = str(j)
 
         try:
-            #Finds duplicate match in the checkTable dictionary
+            #Finds a duplicate in the checkTable dictionary
             if duplicate_mac in checkTable.keys():
                 IP = checkTable[duplicate_mac]
                 IP = ', '.join(IP)
                 print(Fore.RED + '\n[!]', 'ARP Spoof Detected')
                 print(Fore.RED + '\n[!]', f'{duplicate_mac} belongs to: {IP}')
-
-                #Date and time
-                dt = datetime.now().strftime('%A, %B %d, %Y / %I:%M %p')
+               
+            #Date and time
+            dt = datetime.now().strftime('%A, %B %d, %Y / %I:%M %p')
                 
-                #Logs event
-                user_name = os.getlogin()
-                choice = input('\nDo you want to save event as a text file? (y/n) > ').lower()
-                if choice != 'y' and choice != 'yes':
-                    if p.system()[0] == 'L': os.system('clear'); print(logo)
-                    elif p.system()[0] == 'D': os.system('clear'); print(logo)
-                    elif p.system()[0] == 'W': os.system('cls'); print(logo)
-                elif p.system()[0] == 'L':
-                    print('\n[+] \"ALERT\" file was created in the desktop directory')
-                    with open('/home/' + user_name + '/Desktop/ALERT.txt', 'a') as file:
+            #Logs event
+            user_name = os.getlogin()
+            choice = input('\nDo you want to save event as a text file? (y/n) > ').lower()
+            if choice != 'y' and choice != 'yes':
+                if p.system()[0] == 'L': os.system('clear'); print(logo)
+                elif p.system()[0] == 'D': os.system('clear'); print(logo)
+                elif p.system()[0] == 'W': os.system('cls'); print(logo)
+            elif p.system()[0] == 'L':
+                print('\n[+] \"ALERT\" file was created in the desktop directory')
+                with open('/home/' + user_name + '/Desktop/ALERT.txt', 'a') as file:
+                    file.write(f'{dt}\n{duplicate_mac} belongs to > {IP}\n\n')
+            elif p.system()[0] == 'D':
+                print(Fore.GREEN + '\n[+]', '\"ALERT\" file was created in the desktop directory')
+                with open('/Users/' + user_name + '/Desktop/ALERT.txt', 'a') as file:
+                    file.write(f'{dt}\n{duplicate_mac} belongs to > {IP}\n\n')
+            elif p.system()[0] == 'W':
+                path = 'C:/Users/' + user_name + '/OneDrive/Desktop'
+                
+                if os.path.exists(path):
+                    print(Fore.GREEN + '\n[+]', '\"ALERT\" file was created in the desktop directory')
+                    with open('/Users/' + user_name + '/OneDrive/Desktop/ALERT.txt', 'a') as file:
                         file.write(f'{dt}\n{duplicate_mac} belongs to > {IP}\n\n')
-                elif p.system()[0] == 'D':
+                else:
                     print(Fore.GREEN + '\n[+]', '\"ALERT\" file was created in the desktop directory')
                     with open('/Users/' + user_name + '/Desktop/ALERT.txt', 'a') as file:
                         file.write(f'{dt}\n{duplicate_mac} belongs to > {IP}\n\n')
-                elif p.system()[0] == 'W':
-                    path = 'C:/Users/' + user_name + '/OneDrive/Desktop'
-
-                    if os.path.exists(path):
-                        print(Fore.GREEN + '\n[+]', '\"ALERT\" file was created in the desktop directory')
-                        with open('/Users/' + user_name + '/OneDrive/Desktop/ALERT.txt', 'a') as file:
-                            file.write(f'{dt}\n{duplicate_mac} belongs to > {IP}\n\n')
-                    else:
-                        print(Fore.GREEN + '\n[+]', '\"ALERT\" file was created in the desktop directory')
-                        with open('/Users/' + user_name + '/Desktop/ALERT.txt', 'a') as file:
-                            file.write(f'{dt}\n{duplicate_mac} belongs to > {IP}\n\n')
         except Exception: 
             print(Fore.CYAN + '\n[-]', 'No ARP Spoofing Attack Detected')
     duplicateMAC()
