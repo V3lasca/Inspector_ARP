@@ -60,8 +60,7 @@ while True:
                           Fore.MAGENTA + '\n[*]', 'Enter words, numbers, or a symbol to use program',
                           Fore.MAGENTA + '\n[*]', 'Entering words are case-insensitive')
                 elif choice == 'exit': exit()
-                elif choice == 'menu': print('\n' + menu + '\n' + linux + '\n' + mac + '\n'
-                                              + win + '\n' + help)
+                elif choice == 'menu': print(f'\n{menu}\n{linux}\n{mac}\n{win}\n{help}')
                 elif choice == 'cls': 
                     if p.system()[0] == 'L': os.system('clear'); print(logo)
                     elif p.system()[0] == 'D': os.system('clear'); print(logo)              
