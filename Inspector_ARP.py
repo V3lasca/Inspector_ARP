@@ -15,8 +15,8 @@ print(logo := '''
 ''')
 
 print(menu := Fore.YELLOW + '+' + '-' * 38 + '+\n'
-        '| Which system do you wish to test on? |\n'
-        '+' + '-' * 38 + '+')
+      '| Which system do you wish to test on? |\n' 
+      '+' + '-' * 38 + '+')
 
 print(linux := Fore.GREEN + '1) Linux')
 print(mac := Fore.RED + '2) macOS')
@@ -25,7 +25,7 @@ print(help := Fore.WHITE + '*) Help')
 
 while True:
     extr = []
-    
+
     #Extracts ARP cache
     def arpTableExtraction():
         global extr
@@ -34,14 +34,14 @@ while True:
                 choice = input('\n\033[4mIARP\033[0m > ').lower()
                 if choice == '1' or choice == 'linux':
                     if p.system()[0] == 'L':
-                        cache = os.popen('arp -n').read()
+                        cache = os.popen('arp -e').read()
                         extr = findall('[0-9.]+\s+[a-z]+\s+[0-9:a-z]{17}', cache)
                         break
                     else:
                         print(Fore.RED + 'Wrong System')
                 elif choice == '2' or choice == 'macos':
                     if p.system()[0] == 'D':
-                        cache = os.popen('arp -n').read()
+                        cache = os.popen('arp -e').read()
                         extr = findall('[0-9.]+\s+[a-z]+\s+[0-9:a-z]{17}', cache)
                         break
                     else:
@@ -75,7 +75,7 @@ while True:
     #Splits list
     for i in extr: listTable += i + ' '
     listTable = listTable.split()
-    
+
     #Removes HWtype (type of link) from list
     listTable = [i for i in listTable if i != 'ether']
 
@@ -93,7 +93,7 @@ while True:
     def duplicateMAC():
         checkTable = {}
 
-        #Groups IP addresses with same MAC address
+        #Groups MAC addresses with IP addresses 
         for key, value in filterTable.items():
             checkTable.setdefault(value, set()).add(key)
         
@@ -114,20 +114,20 @@ while True:
                 IP = checkTable[duplicate_mac]
                 IP = ', '.join(IP)
                 print(Fore.RED + '\n[!]', 'ARP Spoof Detected')
-                print(Fore.RED + '\n[!]', f'{duplicate_mac} belongs to > {IP}')
-               
+                print(Fore.RED + '[!]', f'{duplicate_mac} belongs to > {IP}')
+
             #Date and time
             dt = datetime.now().strftime('%A, %B %d, %Y / %I:%M %p')
-                
+            
             #Logs event
             user_name = os.getlogin()
-            choice = input('\nDo you want to save event as a text file? (y/n) > ').lower()
+            choice = input(Fore.YELLOW + '\n[?]', 'Do you want to save event as a text file? (y/n) > ').lower()
             if choice != 'y' and choice != 'yes':
                 if p.system()[0] == 'L': os.system('clear'); print(logo)
                 elif p.system()[0] == 'D': os.system('clear'); print(logo)
                 elif p.system()[0] == 'W': os.system('cls'); print(logo)
             elif p.system()[0] == 'L':
-                print('\n[+] \"ALERT\" file was created in the desktop directory')
+                print(Fore.GREEN + '\n[+]', '\"ALERT\" file was created in the desktop directory')
                 with open('/home/' + user_name + '/Desktop/ALERT.txt', 'a') as file:
                     file.write(f'{dt}\n{duplicate_mac} belongs to > {IP}\n\n')
             elif p.system()[0] == 'D':
@@ -136,7 +136,6 @@ while True:
                     file.write(f'{dt}\n{duplicate_mac} belongs to > {IP}\n\n')
             elif p.system()[0] == 'W':
                 path = 'C:/Users/' + user_name + '/OneDrive/Desktop'
-                
                 if os.path.exists(path):
                     print(Fore.GREEN + '\n[+]', '\"ALERT\" file was created in the desktop directory')
                     with open('/Users/' + user_name + '/OneDrive/Desktop/ALERT.txt', 'a') as file:
