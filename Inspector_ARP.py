@@ -1,4 +1,4 @@
-from colorama import init, Back, Fore
+from colorama import Fore, init
 from datetime import datetime
 from re import findall
 import os
@@ -24,33 +24,29 @@ print(win := Fore.BLUE + '3) Windows')
 print(help := Fore.WHITE + '*) Help')
 
 while True:
-    extr = []
-
-    #Extracts ARP cache
-    def arpTableExtraction():
-        global extr
+    def extract_arp_cache():
         while True:
             try:
                 choice = input('\n\033[4mIARP\033[0m > ').lower()
                 if choice == '1' or choice == 'linux':
-                    if p.system()[0] == 'L':
-                        cache = os.popen('arp -e').read()
+                    if p.system() == 'Linux':
+                        cache = os.popen('arp -n').read()
                         extr = findall('[0-9.]+\s+[a-z]+\s+[0-9:a-z]{17}', cache)
-                        break
+                        find_duplicate_mac(extr)
                     else:
                         print(Fore.RED + 'Wrong System')
                 elif choice == '2' or choice == 'macos':
-                    if p.system()[0] == 'D':
-                        cache = os.popen('arp -e').read()
+                    if p.system() == 'Darwin':
+                        cache = os.popen('arp -n').read()
                         extr = findall('[0-9.]+\s+[a-z]+\s+[0-9:a-z]{17}', cache)
-                        break
+                        find_duplicate_mac(extr)
                     else:
                         print(Fore.RED + 'Wrong System')
                 elif choice == '3' or choice == 'windows':
-                    if p.system()[0] == 'W':
+                    if p.system() == 'Windows':
                         cache = os.popen('arp -a').read()
                         extr = findall('[0-9.]+\s+[0-9-a-z]{17}', cache)
-                        break
+                        find_duplicate_mac(extr)
                     else:
                         print(Fore.RED + 'Wrong System')
                 elif choice == 'help' or choice == '*':
@@ -59,91 +55,97 @@ while True:
                           Fore.MAGENTA + '\n[*]', 'Type "menu" to show options',
                           Fore.MAGENTA + '\n[*]', 'Enter words, numbers, or a symbol to use program',
                           Fore.MAGENTA + '\n[*]', 'Entering words are case-insensitive')
-                elif choice == 'exit': exit()
-                elif choice == 'menu': print(f'\n{menu}\n{linux}\n{mac}\n{win}\n{help}')
                 elif choice == 'cls': 
-                    if p.system()[0] == 'L': os.system('clear'); print(logo)
-                    elif p.system()[0] == 'D': os.system('clear'); print(logo)              
-                    elif p.system()[0] == 'W': os.system('cls'); print(logo)          
-                else: print(Fore.RED + 'Wrong Input')
+                    if p.system() == 'Linux': 
+                        os.system('clear'); print(logo)
+                    elif p.system() == 'Darwin': 
+                        os.system('clear'); print(logo)              
+                    elif p.system() == 'Windows': 
+                        os.system('cls'); print(logo)          
+                elif choice == 'exit': 
+                    exit()
+                elif choice == 'menu': 
+                    print(f'\n{menu}\n{linux}\n{mac}\n{win}\n{help}')
+                elif choice.strip() == '' : 
+                    print(Fore.RED + 'Empty Input')
+                else: 
+                    print(Fore.RED + 'Wrong Input')
             except KeyboardInterrupt:
                 exit()
-    arpTableExtraction()
 
-    listTable = ''
+    def find_duplicate_mac(extr):
+        arp_table = ''
 
-    #Splits list
-    for i in extr: listTable += i + ' '
-    listTable = listTable.split()
+        for i in extr: 
+            arp_table += i + ' '
 
-    #Removes HWtype (type of link) from list
-    listTable = [i for i in listTable if i != 'ether']
+        arp_table = arp_table.split()
 
-    ip_list = []
-    mac_list = []
-
-    #Converts list into a dictionary
-    for k in range(len(listTable)):
-        if k % 2:
-            mac_list.append(listTable[k])
-        else:
-            ip_list.append((listTable[k]))
-    filterTable = dict(zip(ip_list, mac_list))
-    
-    def duplicateMAC():
-        checkTable = {}
-
-        #Groups MAC addresses with IP addresses 
-        for key, value in filterTable.items():
-            checkTable.setdefault(value, set()).add(key)
+        # Removes HWtype (type of link) from list
+        arp_table = [i for i in arp_table if i != 'ether']
         
-        #Removes broadcast address
-        while 'ff-ff-ff-ff-ff-ff' in checkTable:
-            checkTable.pop('ff-ff-ff-ff-ff-ff')
-        while 'ff:ff:ff:ff:ff:ff' in checkTable:
-            checkTable.pop('ff:ff:ff:ff:ff:ff')
+        ip_addr = []
+        mac_addr = []
 
-        #List of duplicate MAC addresses
-        duplicate_mac = [key for key, value in checkTable.items() if len(value) > 1]
+        for i in range(len(arp_table)):
+            if i % 2:
+                mac_addr.append(arp_table[i])
+            else:
+                ip_addr.append((arp_table[i]))
 
-        for j in duplicate_mac: duplicate_mac = str(j)
+        dict_table = dict(zip(ip_addr, mac_addr))
+
+        group_table = {}
+        # Groups MAC addresses with corresponding IP addresses 
+        for key, value in dict_table.items(): 
+            group_table.setdefault(value, set()).add(key)
+        
+        # Removes broadcast address
+        while 'ff-ff-ff-ff-ff-ff' in group_table: 
+            group_table.pop('ff-ff-ff-ff-ff-ff')
+        while 'ff:ff:ff:ff:ff:ff' in group_table: 
+            group_table.pop('ff:ff:ff:ff:ff:ff')
+
+        list_of_duplicate_mac_addr = [key for key, value in group_table.items() if len(value) > 1]
+        
+        for i in list_of_duplicate_mac_addr: 
+            list_of_duplicate_mac_addr = str(i)
 
         try:
-            #Finds a duplicate in the checkTable dictionary
-            if duplicate_mac in checkTable.keys():
-                IP = checkTable[duplicate_mac]
-                IP = ', '.join(IP)
-                print(Fore.RED + '\n[!]', 'ARP Spoof Detected')
-                print(Fore.RED + '[!]', f'{duplicate_mac} belongs to > {IP}')
+            if list_of_duplicate_mac_addr in group_table.keys():
+                list_of_ip_addr = group_table[list_of_duplicate_mac_addr]
+                list_of_ip_addr = ', '.join(list_of_ip_addr)
+                print(Fore.RED + '\n[!]', 'ARP Spoofing Attack Detected')
+                print(Fore.RED + '[!]', f'{list_of_duplicate_mac_addr} belongs to > {list_of_ip_addr}')
+                log(f'{list_of_duplicate_mac_addr} belongs to > {list_of_ip_addr}')
+        except:
+            print(Fore.CYAN + '\n[-]', 'No ARP Spoofing Attack Detected')
+             
+    def log(event):
+        dt = datetime.now().strftime('%A, %B %d, %Y / %I:%M %p')
+        user_name = os.getlogin()
+        choice = input('\033[33m\n[?]\033[0m Do you want to save event as a text file? (y/n) > ').lower()
+        if choice != 'y' and choice != 'yes':
+            if p.system() == 'Linux': os.system('clear'); print(logo)
+            elif p.system() == 'Darwin': os.system('clear'); print(logo)
+            elif p.system() == 'Windows': os.system('cls'); print(logo)
+        elif p.system() == 'Linux':
+            print(Fore.GREEN + '\n[+]', '\"ALERT\" file was created in the desktop directory')
+            with open('/home/' + user_name + '/Desktop/ALERT.txt', 'a') as file: 
+                file.write(f'{dt}\n{event}\n\n')
+        elif p.system() == 'Darwin':
+            print(Fore.GREEN + '\n[+]', '\"ALERT\" file was created in the desktop directory')
+            with open('/Users/' + user_name + '/Desktop/ALERT.txt', 'a') as file:
+                file.write(f'{dt}\n{event}\n\n')
+        elif p.system() == 'Windows':
+            path = '/Users/' + user_name + '/OneDrive/Desktop'
 
-            #Date and time
-            dt = datetime.now().strftime('%A, %B %d, %Y / %I:%M %p')
-            
-            #Logs event
-            user_name = os.getlogin()
-            choice = input('\n\033[93m[?]\033[0m Do you want to save event as a text file? (y/n) > ').lower()
-            if choice != 'y' and choice != 'yes':
-                if p.system()[0] == 'L': os.system('clear'); print(logo)
-                elif p.system()[0] == 'D': os.system('clear'); print(logo)
-                elif p.system()[0] == 'W': os.system('cls'); print(logo)
-            elif p.system()[0] == 'L':
+            if os.path.exists(path):
                 print(Fore.GREEN + '\n[+]', '\"ALERT\" file was created in the desktop directory')
-                with open('/home/' + user_name + '/Desktop/ALERT.txt', 'a') as file:
-                    file.write(f'{dt}\n{duplicate_mac} belongs to > {IP}\n\n')
-            elif p.system()[0] == 'D':
+                with open('/Users/' + user_name + '/OneDrive/Desktop/ALERT.txt', 'a') as file:
+                    file.write(f'{dt}\n{event}\n\n')
+            else:
                 print(Fore.GREEN + '\n[+]', '\"ALERT\" file was created in the desktop directory')
                 with open('/Users/' + user_name + '/Desktop/ALERT.txt', 'a') as file:
-                    file.write(f'{dt}\n{duplicate_mac} belongs to > {IP}\n\n')
-            elif p.system()[0] == 'W':
-                path = 'C:/Users/' + user_name + '/OneDrive/Desktop'
-                if os.path.exists(path):
-                    print(Fore.GREEN + '\n[+]', '\"ALERT\" file was created in the desktop directory')
-                    with open('/Users/' + user_name + '/OneDrive/Desktop/ALERT.txt', 'a') as file:
-                        file.write(f'{dt}\n{duplicate_mac} belongs to > {IP}\n\n')
-                else:
-                    print(Fore.GREEN + '\n[+]', '\"ALERT\" file was created in the desktop directory')
-                    with open('/Users/' + user_name + '/Desktop/ALERT.txt', 'a') as file:
-                        file.write(f'{dt}\n{duplicate_mac} belongs to > {IP}\n\n')
-        except Exception: 
-            print(Fore.CYAN + '\n[-]', 'No ARP Spoofing Attack Detected')
-    duplicateMAC()
+                    file.write(f'{dt}\n{event}\n\n')
+    extract_arp_cache()
