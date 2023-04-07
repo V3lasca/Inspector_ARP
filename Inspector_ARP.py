@@ -120,7 +120,7 @@ while True:
             print(Fore.CYAN + '\n[-]', 'No ARP Spoofing Attack Detected')
              
     def log(event):
-        date_time = time.strftime('%A, %B %d, %Y / %I:%M %platform')
+        date_time = time.strftime('%A, %B %d, %Y / %I:%M %p')
         user_name = os.getlogin()
         choice = input('\033[33m\n[?]\033[0m Do you want to save event as a text file? (y/n) > ').lower()
         if choice != 'y' and choice != 'yes':
