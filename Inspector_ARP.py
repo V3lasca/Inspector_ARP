@@ -1,8 +1,6 @@
 from colorama import Fore, init
-from datetime import datetime
 from re import findall
-import os
-import platform as p
+import os, platform, time
 
 init(autoreset = True)
 
@@ -29,25 +27,25 @@ while True:
             try:
                 choice = input('\n\033[4mIARP\033[0m > ').lower()
                 if choice == '1' or choice == 'linux':
-                    if p.system() == 'Linux':
+                    if platform.system() == 'Linux':
                         cache = os.popen('arp -n').read()
                         extr = findall('[0-9.]+\s+[a-z]+\s+[0-9:a-z]{17}', cache)
                         find_duplicate_mac(extr)
                     else:
                         print(Fore.RED + 'Wrong System')
                 elif choice == '2' or choice == 'macos':
-                    if p.system() == 'Darwin':
+                    if platform.system() == 'Darwin':
                         cache = os.popen('arp -n').read()
                         extr = findall('[0-9.]+\s+[a-z]+\s+[0-9:a-z]{17}', cache)
                         find_duplicate_mac(extr)
                     else:
                         print(Fore.RED + 'Wrong System')
                 elif choice == '3' or choice == 'windows':
-                    if p.system() == 'Windows':
+                    if platform.system() == 'Windows':
                         cache = os.popen('arp -a').read()
                         extr = findall('[0-9.]+\s+[0-9-a-z]{17}', cache)
                         find_duplicate_mac(extr)
-                    else:
+                    else: 
                         print(Fore.RED + 'Wrong System')
                 elif choice == 'help' or choice == '*':
                     print(Fore.MAGENTA + '\n[*]', 'Type "cls" to clear screen',
@@ -56,11 +54,11 @@ while True:
                           Fore.MAGENTA + '\n[*]', 'Enter words, numbers, or a symbol to use program',
                           Fore.MAGENTA + '\n[*]', 'Entering words are case-insensitive')
                 elif choice == 'cls': 
-                    if p.system() == 'Linux': 
+                    if platform.system() == 'Linux': 
                         os.system('clear'); print(logo)
-                    elif p.system() == 'Darwin': 
+                    elif platform.system() == 'Darwin': 
                         os.system('clear'); print(logo)              
-                    elif p.system() == 'Windows': 
+                    elif platform.system() == 'Windows': 
                         os.system('cls'); print(logo)          
                 elif choice == 'exit': 
                     exit()
@@ -70,7 +68,7 @@ while True:
                     print(Fore.RED + 'Empty Input')
                 else: 
                     print(Fore.RED + 'Wrong Input')
-            except KeyboardInterrupt:
+            except KeyboardInterrupt: 
                 exit()
 
     def find_duplicate_mac(extr):
@@ -122,30 +120,33 @@ while True:
             print(Fore.CYAN + '\n[-]', 'No ARP Spoofing Attack Detected')
              
     def log(event):
-        dt = datetime.now().strftime('%A, %B %d, %Y / %I:%M %p')
+        date_time = time.strftime('%A, %B %d, %Y / %I:%M %platform')
         user_name = os.getlogin()
         choice = input('\033[33m\n[?]\033[0m Do you want to save event as a text file? (y/n) > ').lower()
         if choice != 'y' and choice != 'yes':
-            if p.system() == 'Linux': os.system('clear'); print(logo)
-            elif p.system() == 'Darwin': os.system('clear'); print(logo)
-            elif p.system() == 'Windows': os.system('cls'); print(logo)
-        elif p.system() == 'Linux':
+            if platform.system() == 'Linux': 
+                os.system('clear'); print(logo)
+            elif platform.system() == 'Darwin': 
+                os.system('clear'); print(logo)
+            elif platform.system() == 'Windows': 
+                os.system('cls'); print(logo)
+        elif platform.system() == 'Linux':
             print(Fore.GREEN + '\n[+]', '\"ALERT\" file was created in the desktop directory')
             with open('/home/' + user_name + '/Desktop/ALERT.txt', 'a') as file: 
-                file.write(f'{dt}\n{event}\n\n')
-        elif p.system() == 'Darwin':
+                file.write(f'{date_time}\n{event}\n\n')
+        elif platform.system() == 'Darwin':
             print(Fore.GREEN + '\n[+]', '\"ALERT\" file was created in the desktop directory')
             with open('/Users/' + user_name + '/Desktop/ALERT.txt', 'a') as file:
-                file.write(f'{dt}\n{event}\n\n')
-        elif p.system() == 'Windows':
+                file.write(f'{date_time}\n{event}\n\n')
+        elif platform.system() == 'Windows':
             path = '/Users/' + user_name + '/OneDrive/Desktop'
 
             if os.path.exists(path):
                 print(Fore.GREEN + '\n[+]', '\"ALERT\" file was created in the desktop directory')
                 with open('/Users/' + user_name + '/OneDrive/Desktop/ALERT.txt', 'a') as file:
-                    file.write(f'{dt}\n{event}\n\n')
+                    file.write(f'{date_time}\n{event}\n\n')
             else:
                 print(Fore.GREEN + '\n[+]', '\"ALERT\" file was created in the desktop directory')
                 with open('/Users/' + user_name + '/Desktop/ALERT.txt', 'a') as file:
-                    file.write(f'{dt}\n{event}\n\n')
+                    file.write(f'{date_time}\n{event}\n\n')
     extract_arp_cache()
