@@ -48,7 +48,7 @@ def find_duplicate_mac(extr):
             print(Fore.RED + '[!]', f'{list_of_duplicate_mac_addr} belongs to > {list_of_ip_addr}')
             
             log_event(f'{list_of_duplicate_mac_addr} belongs to > {list_of_ip_addr}')
-    except:
+    except TypeError:
         print(Fore.CYAN + '\n[-]', 'No ARP Spoofing Attack Detected')
 
 if __name__ == '__main__':
