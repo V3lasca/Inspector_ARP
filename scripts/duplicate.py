@@ -38,6 +38,7 @@ def find_duplicate_mac(extr):
     
     for i in list_of_duplicate_mac_addr: 
         list_of_duplicate_mac_addr = str(i)
+
     try:
         if list_of_duplicate_mac_addr in group_table.keys():
             list_of_ip_addr = group_table[list_of_duplicate_mac_addr]
