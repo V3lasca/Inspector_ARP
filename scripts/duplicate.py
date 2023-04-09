@@ -53,4 +53,3 @@ def find_duplicate_mac(extr):
 
 if __name__ == '__main__':
     find_duplicate_mac()
-    log_event
