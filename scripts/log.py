@@ -17,11 +17,13 @@ def log_event(event):
     if choice != 'y' and choice != 'yes':
         if platform.system() == 'Linux': 
             os.system('clear'); print(logo)
+
         elif platform.system() == 'Darwin': 
             os.system('clear'); print(logo)
             
         elif platform.system() == 'Windows': 
             os.system('cls'); print(logo)
+
     elif platform.system() == 'Linux':
         print(Fore.GREEN + '\n[+]', '\"ALERT\" file was created in the desktop directory')
         with open('/home/' + user_name + '/Desktop/ALERT.txt', 'a') as file: 
@@ -34,6 +36,7 @@ def log_event(event):
             
     elif platform.system() == 'Windows':
         path = '/Users/' + user_name + '/OneDrive/Desktop'
+
         if os.path.exists(path):
             print(Fore.GREEN + '\n[+]', '\"ALERT\" file was created in the desktop directory')
             with open('/Users/' + user_name + '/OneDrive/Desktop/ALERT.txt', 'a') as file:
