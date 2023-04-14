@@ -10,8 +10,8 @@ logo = '''
 '''
 
 def log_event(event):
-    date_time = time.strftime('%A, %B %d, %Y / %I:%M %p')
     user_name = os.getlogin()
+    date_time = time.strftime('%A, %B %d, %Y / %I:%M %p')
     choice = input('\033[33m\n[?]\033[0m Do you want to save  as a text file? (y/n) > ').lower()
     
     if choice != 'y' and choice != 'yes':
@@ -26,24 +26,24 @@ def log_event(event):
 
     elif platform.system() == 'Linux':
         print(Fore.GREEN + '\n[+]', '\"ALERT\" file was created in the desktop directory')
-        with open('/home/' + user_name + '/Desktop/ALERT.txt', 'a') as file: 
+        with open(f'/home/{user_name}/Desktop/ALERT.txt', 'a') as file: 
             file.write(f'{date_time}\n{event}\n\n')
             
     elif platform.system() == 'Darwin':
         print(Fore.GREEN + '\n[+]', '\"ALERT\" file was created in the desktop directory')
-        with open('/Users/' + user_name + '/Desktop/ALERT.txt', 'a') as file:
+        with open(f'/Users/{user_name}/Desktop/ALERT.txt', 'a') as file:
             file.write(f'{date_time}\n{event}\n\n')
             
     elif platform.system() == 'Windows':
-        path = '/Users/' + user_name + '/OneDrive/Desktop'
+        path = (f'/Users/{user_name}/OneDrive/Desktop')
 
         if os.path.exists(path):
             print(Fore.GREEN + '\n[+]', '\"ALERT\" file was created in the desktop directory')
-            with open('/Users/' + user_name + '/OneDrive/Desktop/ALERT.txt', 'a') as file:
+            with open(f'/Users/{user_name}/OneDrive/Desktop/ALERT.txt', 'a') as file:
                 file.write(f'{date_time}\n{event}\n\n')
         else:
             print(Fore.GREEN + '\n[+]', '\"ALERT\" file was created in the desktop directory')
-            with open('/Users/' + user_name + '/Desktop/ALERT.txt', 'a') as file:
+            with open(f'/Users/{user_name}/Desktop/ALERT.txt', 'a') as file:
                 file.write(f'{date_time}\n{event}\n\n')
 
 if __name__ == '__main__':
