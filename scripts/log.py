@@ -25,12 +25,12 @@ def log_event(event):
             os.system('cls'); print(logo)
 
     elif platform.system() == 'Linux':
-        print(Fore.GREEN + '\n[+]', '\"ALERT\" file was created in the desktop directory')
+        print(Fore.GREEN + '\n[+]', '"ALERT" file was created in the desktop directory')
         with open(f'/home/{user_name}/Desktop/ALERT.txt', 'a') as file: 
             file.write(f'{date_time}\n{event}\n\n')
             
     elif platform.system() == 'Darwin':
-        print(Fore.GREEN + '\n[+]', '\"ALERT\" file was created in the desktop directory')
+        print(Fore.GREEN + '\n[+]', '"ALERT" file was created in the desktop directory')
         with open(f'/Users/{user_name}/Desktop/ALERT.txt', 'a') as file:
             file.write(f'{date_time}\n{event}\n\n')
             
@@ -38,11 +38,11 @@ def log_event(event):
         path = (f'/Users/{user_name}/OneDrive/Desktop')
 
         if os.path.exists(path):
-            print(Fore.GREEN + '\n[+]', '\"ALERT\" file was created in the desktop directory')
+            print(Fore.GREEN + '\n[+]', '"ALERT" file was created in the desktop directory')
             with open(f'/Users/{user_name}/OneDrive/Desktop/ALERT.txt', 'a') as file:
                 file.write(f'{date_time}\n{event}\n\n')
         else:
-            print(Fore.GREEN + '\n[+]', '\"ALERT\" file was created in the desktop directory')
+            print(Fore.GREEN + '\n[+]', '"ALERT" file was created in the desktop directory')
             with open(f'/Users/{user_name}/Desktop/ALERT.txt', 'a') as file:
                 file.write(f'{date_time}\n{event}\n\n')
 
