@@ -6,7 +6,7 @@
 
 <br>
 
-This program will help detect ARP poisoning attacks from a threat actor (attacker).
+This program will help detect <a href='https://www.imperva.com/learn/application-security/arp-spoofing/' target='_blank' >ARP poisoning attacks from a threat actor (attacker).</a>
 
 I would like to give credit to <a href='https://github.com/saintvic20/ARP-SPOOF-DETECTOR'>saintvic20<a/> during my research on creating this tool.
 
