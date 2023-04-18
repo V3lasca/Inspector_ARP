@@ -6,7 +6,7 @@
 
 <br>
 
-This program will help detect <a href='https://www.imperva.com/learn/application-security/arp-spoofing/'>ARP poisoning</a> attacks from a <a href='https://www.proofpoint.com/us/threat-reference/threat-actor'threat actor</a> (attacker).
+This program will help detect <a href='https://www.imperva.com/learn/application-security/arp-spoofing/'>ARP poisoning</a> attacks from a <a href='https://www.proofpoint.com/us/threat-reference/threat-actor'>threat actor</a> (attacker).
 
 I would like to give credit to <a href='https://github.com/saintvic20/ARP-SPOOF-DETECTOR'>saintvic20</a> during my research on creating this tool.
 
