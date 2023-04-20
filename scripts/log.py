@@ -35,15 +35,15 @@ def log_event(event):
             file.write(f'{date_time}\n{event}\n\n')
             
     elif platform.system() == 'Windows':
-        path = (f'/Users/{user_name}/OneDrive/Desktop')
+        path = (f'\\Users\\{user_name}\\OneDrive\\Desktop')
 
         if os.path.exists(path):
             print(Fore.GREEN + '\n[+]', '"ALERT" file was created in the desktop directory')
-            with open(f'/Users/{user_name}/OneDrive/Desktop/ALERT.txt', 'a') as file:
+            with open(f'\\Users\\{user_name}\\OneDrive\\Desktop\\ALERT.txt', 'a') as file:
                 file.write(f'{date_time}\n{event}\n\n')
         else:
             print(Fore.GREEN + '\n[+]', '"ALERT" file was created in the desktop directory')
-            with open(f'/Users/{user_name}/Desktop/ALERT.txt', 'a') as file:
+            with open(f'\\Users\\{user_name}\\Desktop\\ALERT.txt', 'a') as file:
                 file.write(f'{date_time}\n{event}\n\n')
 
 if __name__ == '__main__':
