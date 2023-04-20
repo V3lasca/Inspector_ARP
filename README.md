@@ -17,4 +17,3 @@ git clone https://github.com/V3lasc/Inspector_ARP.git
 cd Inspector_ARP
 python3 Inspector_ARP.py
 ```
-or
