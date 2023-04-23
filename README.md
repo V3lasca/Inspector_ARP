@@ -21,9 +21,9 @@ or
 
 Write this interpreter at the first line of the script:
 
-<img width='250' src='interpreter.png' alt="Interpreter'>
+<img width='250' src='Interpreter.png' alt='Interpreter'>
 
-Then:
+Then
 ```
 chmod +x Inspector_ARP
 dos2unix Inspector_ARP
