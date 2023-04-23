@@ -81,7 +81,7 @@ while True:
                 else: 
                     print(Fore.RED + 'Wrong Input')
             except KeyboardInterrupt:
-                print('^C')
+                print(Fore.RED + '^C')
                 sys.exit()
     
     if __name__ == '__main__':
