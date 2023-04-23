@@ -25,7 +25,7 @@ Write this interpreter at the first line in Inspector_ARP.py
 
 Then
 ```
-chmod +x Inspector_ARP
-dos2unix Inspector_ARP
-./Inspector_ARP
+chmod +x Inspector_ARP.py
+dos2unix Inspector_ARP.py
+./Inspector_ARP.py
 ```
