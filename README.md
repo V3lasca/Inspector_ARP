@@ -17,3 +17,14 @@ git clone https://github.com/V3lasc/Inspector_ARP.git
 cd Inspector_ARP
 python3 Inspector_ARP.py
 ```
+or
+
+Write this interpreter at the first line of the script:
+<img width='250' src='interpreter.jpg' alt=''>
+
+Then:
+'''
+chmod +x Inspector_ARP
+dos2unix Inspector_ARP
+./Inspector_ARP
+'''
