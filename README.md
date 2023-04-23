@@ -21,7 +21,7 @@ or
 
 Write this interpreter at the first line of the script:
 
-<img width='250' src='interpreter.png' alt=''>
+<img width='250' src='Interpreter.png' alt="Interpreter'>
 
 Then:
 ```
