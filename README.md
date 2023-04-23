@@ -17,11 +17,11 @@ git clone https://github.com/V3lasc/Inspector_ARP.git
 cd Inspector_ARP
 python3 Inspector_ARP.py
 ```
-or
+<strong>or</strong>
 
-Write this interpreter at the first line of the script:
+Write this interpreter at the first line of the script
 
-<img width='250' src='Interpreter.png' alt='Interpreter'>
+<img width='250' src='images/Interpreter.png' alt='Interpreter'>
 
 Then
 ```
