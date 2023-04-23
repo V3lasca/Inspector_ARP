@@ -19,7 +19,7 @@ python3 Inspector_ARP.py
 ```
 <strong>or</strong>
 
-Write this interpreter at the first line of the script
+Write this interpreter at the first line in Inspector_ARP.py
 
 <img width='250' src='images/Interpreter.png' alt='Interpreter'>
 
