@@ -30,28 +30,25 @@ while True:
 
                 if choice == '1' or choice == 'linux':
                     if platform.system() == 'Linux':
-                        cache = subprocess.check_output(['arp', '-n']).decode('utf-8')
+                        cache = os.popen('arp -n').read()
                         extr = findall('[0-9.]+\s+[a-z]+\s+[0-9:a-z]{17}', cache)
                         find_duplicate_mac(extr)
-                        
                     else:
                         print(Fore.RED + 'Wrong System')
 
                 elif choice == '2' or choice == 'macos':
                     if platform.system() == 'Darwin':
-                        cache = subprocess.check_output(['arp', '-n']).decode('utf-8')
+                        cache = os.popen('arp -n').read()
                         extr = findall('[0-9.]+\s+[a-z]+\s+[0-9:a-z]{17}', cache)
                         find_duplicate_mac(extr)
-                        
                     else:
                         print(Fore.RED + 'Wrong System')
 
                 elif choice == '3' or choice == 'windows':
                     if platform.system() == 'Windows':
-                        cache = subprocess.check_output(['arp', '-a']).decode('utf-8')
+                        cache = os.popen('arp -a').read()
                         extr = findall('[0-9.]+\s+[0-9-a-z]{17}', cache)
                         find_duplicate_mac(extr)
-                        
                     else: 
                         print(Fore.RED + 'Wrong System')
 
@@ -83,6 +80,7 @@ while True:
 
                 else: 
                     print(Fore.RED + 'Wrong Input')
+                     
             except KeyboardInterrupt:
                 sys.exit()
     
