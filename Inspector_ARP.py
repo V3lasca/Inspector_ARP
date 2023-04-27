@@ -55,25 +55,21 @@ while True:
                 elif choice == 'help' or choice == '*':
                     print(Fore.MAGENTA + '\n[*]', 'Type "cls" to clear screen',
                           Fore.MAGENTA + '\n[*]', 'Type "exit" to exit program',
-                          Fore.MAGENTA + '\n[*]', 'Type "menu" to show options',
                           Fore.MAGENTA + '\n[*]', 'Entering words are case-insensitive',
                           Fore.MAGENTA + '\n[*]', 'Enter words, numbers, or a symbol to use program')
                     
                 elif choice == 'cls': 
                     if platform.system() == 'Linux': 
-                        os.system('clear'); print(logo)
+                        os.system('clear'); print(f'{logo}\n{menu}\n{linux}\n{mac}\n{win}\n{help}')
                         
                     elif platform.system() == 'Darwin': 
-                        os.system('clear'); print(logo)
+                        os.system('clear'); print(f'{logo}\n{menu}\n{linux}\n{mac}\n{win}\n{help}')
                                       
                     elif platform.system() == 'Windows': 
-                        os.system('cls'); print(logo)
+                        os.system('cls'); print(f'{logo}\n{menu}\n{linux}\n{mac}\n{win}\n{help}')
 
                 elif choice == 'exit': 
                     sys.exit()
-
-                elif choice == 'menu': 
-                    print(f'\n{menu}\n{linux}\n{mac}\n{win}\n{help}')
 
                 elif choice.strip() == '' : 
                     print(Fore.RED + 'Empty Input')
