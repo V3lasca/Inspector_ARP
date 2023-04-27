@@ -22,66 +22,69 @@ print(mac := Fore.RED + '2) macOS')
 print(win := Fore.BLUE + '3) Windows')
 print(help := Fore.WHITE + '*) Help')
 
-def extract_arp_cache():
-    while True:
-        try:
-            choice = input('\n\033[4mIARP\033[0m > ').lower()
-            
-            if choice == '1' or choice == 'linux':
-                if platform.system() == 'Linux':
-                    cache = subprocess.check_output(['arp', '-n']).decode('utf-8')
-                    extr = findall('[0-9.]+\s+[a-z]+\s+[0-9:a-z]{17}', cache)
-                    find_duplicate_mac(extr)
-                else:
-                    print(Fore.RED + 'Wrong System')
-                     
-            elif choice == '2' or choice == 'macos':
-                if platform.system() == 'Darwin':
-                    cache = subprocess.check_output(['arp', '-n']).decode('utf-8')
-                    extr = findall('[0-9.]+\s+[a-z]+\s+[0-9:a-z]{17}', cache)
-                    find_duplicate_mac(extr)
-                else:
-                    print(Fore.RED + 'Wrong System')
-                     
-            elif choice == '3' or choice == 'windows':
-                if platform.system() == 'Windows':
-                    cache = subprocess.check_output(['arp', '-a']).decode('utf-8')
-                    extr = findall('[0-9.]+\s+[0-9-a-z]{17}', cache)
-                    find_duplicate_mac(extr)
-                else: 
-                    print(Fore.RED + 'Wrong System')
-                     
-            elif choice == 'help' or choice == '*':
-                print(Fore.MAGENTA + '\n[*]', 'Type "cls" to clear screen',
-                      Fore.MAGENTA + '\n[*]', 'Type "exit" to exit program',
-                      Fore.MAGENTA + '\n[*]', 'Type "menu" to show options',
-                      Fore.MAGENTA + '\n[*]', 'Entering words are case-insensitive',
-                      Fore.MAGENTA + '\n[*]', 'Enter words, numbers, or a symbol to use program')
-                
-            elif choice == 'cls': 
-                if platform.system() == 'Linux': 
-                    os.system('clear'); print(logo)
+while True:
+    def extract_arp_cache():
+        while True:
+            try:
+                choice = input('\n\033[4mIARP\033[0m > ').lower()
+
+                if choice == '1' or choice == 'linux':
+                    if platform.system() == 'Linux':
+                        cache = subprocess.check_output(['arp', '-n']).decode('utf-8')
+                        extr = findall('[0-9.]+\s+[a-z]+\s+[0-9:a-z]{17}', cache)
+                        find_duplicate_mac(extr)
+                        
+                    else:
+                        print(Fore.RED + 'Wrong System')
+
+                elif choice == '2' or choice == 'macos':
+                    if platform.system() == 'Darwin':
+                        cache = subprocess.check_output(['arp', '-n']).decode('utf-8')
+                        extr = findall('[0-9.]+\s+[a-z]+\s+[0-9:a-z]{17}', cache)
+                        find_duplicate_mac(extr)
+                        
+                    else:
+                        print(Fore.RED + 'Wrong System')
+
+                elif choice == '3' or choice == 'windows':
+                    if platform.system() == 'Windows':
+                        cache = subprocess.check_output(['arp', '-a']).decode('utf-8')
+                        extr = findall('[0-9.]+\s+[0-9-a-z]{17}', cache)
+                        find_duplicate_mac(extr)
+                        
+                    else: 
+                        print(Fore.RED + 'Wrong System')
+
+                elif choice == 'help' or choice == '*':
+                    print(Fore.MAGENTA + '\n[*]', 'Type "cls" to clear screen',
+                          Fore.MAGENTA + '\n[*]', 'Type "exit" to exit program',
+                          Fore.MAGENTA + '\n[*]', 'Type "menu" to show options',
+                          Fore.MAGENTA + '\n[*]', 'Entering words are case-insensitive',
+                          Fore.MAGENTA + '\n[*]', 'Enter words, numbers, or a symbol to use program')
                     
-                elif platform.system() == 'Darwin': 
-                    os.system('clear'); print(logo)
-                                  
-                elif platform.system() == 'Windows': 
-                    os.system('cls'); print(logo)
-                     
-            elif choice == 'exit': 
+                elif choice == 'cls': 
+                    if platform.system() == 'Linux': 
+                        os.system('clear'); print(logo)
+                        
+                    elif platform.system() == 'Darwin': 
+                        os.system('clear'); print(logo)
+                                      
+                    elif platform.system() == 'Windows': 
+                        os.system('cls'); print(logo)
+
+                elif choice == 'exit': 
+                    sys.exit()
+
+                elif choice == 'menu': 
+                    print(f'\n{menu}\n{linux}\n{mac}\n{win}\n{help}')
+
+                elif choice.strip() == '' : 
+                    print(Fore.RED + 'Empty Input')
+
+                else: 
+                    print(Fore.RED + 'Wrong Input')
+            except KeyboardInterrupt:
                 sys.exit()
-                  
-            elif choice == 'menu': 
-                print(f'\n{menu}\n{linux}\n{mac}\n{win}\n{help}')
-                  
-            elif choice.strip() == '' : 
-                print(Fore.RED + 'Empty Input')
-                  
-            else: 
-                print(Fore.RED + 'Wrong Input')
-                  
-        except KeyboardInterrupt:
-            sys.exit()
     
     if __name__ == '__main__':
         extract_arp_cache()
