@@ -9,6 +9,15 @@ logo = '''
                /_/
 '''
 
+menu = (Fore.YELLOW + '+' + '-' * 38 + '+\n'
+      '| Which system do you wish to test on? |\n' 
+      '+' + '-' * 38 + '+')
+
+linux = (Fore.GREEN + '1) Linux')
+mac = (Fore.RED + '2) macOS')
+win = (Fore.BLUE + '3) Windows')
+help = (Fore.WHITE + '*) Help')
+
 def log_event(event):
     user_name = os.getlogin()
     date_time = time.strftime('%A, %B %d, %Y / %I:%M %p')
