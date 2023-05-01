@@ -60,13 +60,16 @@ while True:
                     
                 elif choice == 'cls': 
                     if platform.system() == 'Linux': 
-                        os.system('clear'); print(f'{logo}\n{menu}\n{linux}\n{mac}\n{win}\n{help}')
+                        os.system('clear')
+                        print(f'{logo}\n{menu}\n{linux}\n{mac}\n{win}\n{help}')
                         
                     elif platform.system() == 'Darwin': 
-                        os.system('clear'); print(f'{logo}\n{menu}\n{linux}\n{mac}\n{win}\n{help}')
+                        os.system('clear')
+                        print(f'{logo}\n{menu}\n{linux}\n{mac}\n{win}\n{help}')
                                       
                     elif platform.system() == 'Windows': 
-                        os.system('cls'); print(f'{logo}\n{menu}\n{linux}\n{mac}\n{win}\n{help}')
+                        os.system('cls')
+                        print(f'{logo}\n{menu}\n{linux}\n{mac}\n{win}\n{help}')
 
                 elif choice == 'exit': 
                     sys.exit()
