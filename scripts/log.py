@@ -25,13 +25,16 @@ def log_event(event):
     
     if choice != 'y' and choice != 'yes':
         if platform.system() == 'Linux': 
-            os.system('clear'); print(f'{logo}\n{menu}\n{linux}\n{mac}\n{win}\n{help}')
+            os.system('clear')
+            print(f'{logo}\n{menu}\n{linux}\n{mac}\n{win}\n{help}')
 
         elif platform.system() == 'Darwin': 
-            os.system('clear'); print(f'{logo}\n{menu}\n{linux}\n{mac}\n{win}\n{help}')
+            os.system('clear')
+            print(f'{logo}\n{menu}\n{linux}\n{mac}\n{win}\n{help}')
             
         elif platform.system() == 'Windows': 
-            os.system('cls'); print(f'{logo}\n{menu}\n{linux}\n{mac}\n{win}\n{help}')
+            os.system('cls')
+            print(f'{logo}\n{menu}\n{linux}\n{mac}\n{win}\n{help}')
 
     elif platform.system() == 'Linux':
         print(Fore.GREEN + '\n[+]', '"ALERT" file was created in the desktop directory')
