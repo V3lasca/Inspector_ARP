@@ -21,7 +21,7 @@ help = (Fore.WHITE + '*) Help')
 def log_event(event):
     user_name = os.getlogin()
     date_time = time.strftime('%A, %B %d, %Y / %I:%M %p')
-    choice = input('\033[33m\n[?]\033[0m Do you want to save event as a text file? (y/n) > ').lower()
+    choice = input('\n\033[33m[?]\033[0m Do you want to save event as a text file? (y/n) > ').lower()
     
     if choice != 'y' and choice != 'yes':
         if platform.system() == 'Linux': 
