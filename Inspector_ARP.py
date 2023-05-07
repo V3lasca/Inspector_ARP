@@ -5,7 +5,6 @@ import os, platform, sys
 
 from scripts import find_duplicate_mac
 
-
 init(autoreset = True)
 
 print(logo := '''
