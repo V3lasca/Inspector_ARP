@@ -1,7 +1,10 @@
 from colorama import Fore, init
+
 from re import findall
-from scripts import find_duplicate_mac
 import os, platform, sys
+
+from scripts import find_duplicate_mac
+
 
 init(autoreset = True)
 
