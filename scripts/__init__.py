@@ -1,2 +1,3 @@
-from .log import log_event
-from .duplicate import find_duplicate_mac
+from .screen import Screen
+from .log import Log
+from .duplicate import FindDuplicateMac
