@@ -1,29 +1,9 @@
-from colorama import Fore, init
-
-from re import findall
 import os, platform, sys
 
-from scripts import find_duplicate_mac
+from core import FindDuplicateMac, Screen
 
-init(autoreset = True)
-
-print(logo := '''
-   ____                           __               ___    ___   ___ 
-  /  _/___   ___  ___  ___  ____ / /_ ___   ____  / _ |  / _ \ / _ \\
- _/ / / _ \ (_-< / _ \/ -_)/ __// __// _ \ / __/ / __ | / , _// ___/
-/___//_//_//___// .__/\__/ \__/ \__/ \___//_/   /_/ |_|/_/|_|/_/
-               /_/
-''')
-
-print(menu := Fore.YELLOW + '+' + '-' * 38 + '+\n'
-      '| Which system do you wish to test on? |\n' 
-      '+' + '-' * 38 + '+')
-
-print(linux := Fore.GREEN + '1) Linux')
-print(mac := Fore.RED + '2) macOS')
-print(win := Fore.BLUE + '3) Windows')
-print(help := Fore.WHITE + '*) Help')
-
+Screen.menu()
+    
 while True:
     def extract_arp_cache():
         while True:
@@ -32,55 +12,49 @@ while True:
 
                 if choice == '1' or choice == 'linux':
                     if platform.system() == 'Linux':
-                        cache = os.popen('arp -n').read()
-                        extr = findall('[0-9.]+\s+[a-z]+\s+[0-9:a-z]{17}', cache)
-                        find_duplicate_mac(extr)
+                        FindDuplicateMac.run()
                     else:
-                        print(Fore.RED + 'Wrong System')
+                        print('\033[31mWrong System\033[0m')
 
                 elif choice == '2' or choice == 'macos':
                     if platform.system() == 'Darwin':
-                        cache = os.popen('arp -n').read()
-                        extr = findall('[0-9.]+\s+[a-z]+\s+[0-9:a-z]{17}', cache)
-                        find_duplicate_mac(extr)
+                        FindDuplicateMac.run()
                     else:
-                        print(Fore.RED + 'Wrong System')
+                        print('\033[31mWrong System\033[0m')
 
                 elif choice == '3' or choice == 'windows':
                     if platform.system() == 'Windows':
-                        cache = os.popen('arp -a').read()
-                        extr = findall('[0-9.]+\s+[0-9-a-z]{17}', cache)
-                        find_duplicate_mac(extr)
+                        FindDuplicateMac.run()
                     else: 
-                        print(Fore.RED + 'Wrong System')
-
+                        print('\033[31mWrong System\033[0m')
+                        
                 elif choice == 'help' or choice == '*':
-                    print(Fore.MAGENTA + '\n[*]', 'Type "cls" to clear screen',
-                          Fore.MAGENTA + '\n[*]', 'Type "exit" to exit program',
-                          Fore.MAGENTA + '\n[*]', 'Entering words are case-insensitive',
-                          Fore.MAGENTA + '\n[*]', 'Enter words, numbers, or a symbol to use program')
+                    print('\n[*] Type "cls" to clear screen',
+                          '\n[*] Type "exit" to exit program',
+                          '\n[*] Entering words are case-insensitive',
+                          '\n[*] Enter words, numbers, or a symbol to use program')
                     
                 elif choice == 'cls': 
                     if platform.system() == 'Linux': 
                         os.system('clear')
-                        print(f'{logo}\n{menu}\n{linux}\n{mac}\n{win}\n{help}')
-                        
+                        Screen.menu()
+                                            
                     elif platform.system() == 'Darwin': 
                         os.system('clear')
-                        print(f'{logo}\n{menu}\n{linux}\n{mac}\n{win}\n{help}')
-                                      
+                        Screen.menu()
+                                                             
                     elif platform.system() == 'Windows': 
                         os.system('cls')
-                        print(f'{logo}\n{menu}\n{linux}\n{mac}\n{win}\n{help}')
-
+                        Screen.menu()
+                        
                 elif choice == 'exit': 
                     sys.exit()
 
                 elif choice.strip() == '' : 
-                    print(Fore.RED + 'Empty Input')
+                    print('\033[31mEmpty Input\033[0m')
 
                 else: 
-                    print(Fore.RED + 'Wrong Input')
+                    print('\033[31mWrong Input\033[0m')
                      
             except KeyboardInterrupt:
                 sys.exit()
