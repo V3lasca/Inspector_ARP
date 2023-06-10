@@ -3,6 +3,16 @@ import os, platform, sys
 from core import FindDuplicateMac, Screen
 
 Screen.menu()
+'''
+FG  BG
+31	41	Red	
+32	42	Green	
+33	43	Yellow	
+34	44	Blue	
+35	45	Magenta	
+36	46	Cyan	
+37	47	White
+'''
     
 while True:
     def extract_arp_cache():
@@ -29,10 +39,10 @@ while True:
                         print('\033[31mWrong System\033[0m')
                         
                 elif choice == 'help' or choice == '*':
-                    print('\n[*] Type "cls" to clear screen',
-                          '\n[*] Type "exit" to exit program',
-                          '\n[*] Entering words are case-insensitive',
-                          '\n[*] Enter words, numbers, or a symbol to use program')
+                    print('\n\033[35m[*]\033[0m Type "cls" to clear screen',
+                          '\n\033[35m[*]\033[0m Type "exit" to exit program',
+                          '\n\033[35m[*]\033[0m Entering words are case-insensitive',
+                          '\n\033[35m[*]\033[0m Enter words, numbers, or a symbol to use program')
                     
                 elif choice == 'cls': 
                     if platform.system() == 'Linux': 
