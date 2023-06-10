@@ -3,16 +3,6 @@ import os, platform, sys
 from core import FindDuplicateMac, Screen
 
 Screen.menu()
-'''
-FG  BG
-31	41	Red	
-32	42	Green	
-33	43	Yellow	
-34	44	Blue	
-35	45	Magenta	
-36	46	Cyan	
-37	47	White
-'''
     
 while True:
     def extract_arp_cache():
