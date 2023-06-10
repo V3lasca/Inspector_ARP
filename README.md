@@ -15,7 +15,7 @@ I would like to give credit to <a href='https://github.com/saintvic20/ARP-SPOOF-
 ```
 git clone https://github.com/V3lasc/Inspector_ARP.git
 cd Inspector_ARP
-python3 Inspector_ARP.py
+python3 inspector_arp.py
 ```
 <strong>or</strong>
 
@@ -25,7 +25,7 @@ Write this interpreter at the first line in Inspector_ARP.py
 
 Then
 ```
-chmod +x Inspector_ARP.py
-dos2unix Inspector_ARP.py
-./Inspector_ARP.py
+chmod +x inspector_arp.py
+dos2unix inspector_arp.py
+./inspector_arp.py
 ```
