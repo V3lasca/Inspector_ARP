@@ -8,7 +8,7 @@ while True:
     def extract_arp_cache():
         while True:
             try:
-                choice = input('\n\033[4mIARP\033[0m > ').lower()
+                choice = input('\n\033[4miarp\033[0m > ').lower()
 
                 if choice == '1' or choice == 'linux':
                     if platform.system() == 'Linux':
