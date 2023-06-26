@@ -59,7 +59,7 @@ class FindDuplicateMac:
                     list_of_ip_addr = ', '.join(list_of_ip_addr)
 
                     print('\n\033[31m[!]\033[0m ARP Spoofing Attack Detected')
-                    print('\033[0m[!]\033[0m', f'{list_of_duplicate_mac_addr} belongs to > {list_of_ip_addr}')
+                    print('\033[31m[!]\033[0m', f'{list_of_duplicate_mac_addr} belongs to > {list_of_ip_addr}')
 
                     Log.log(f'{list_of_duplicate_mac_addr} belongs to > {list_of_ip_addr}')
                     break
