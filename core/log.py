@@ -13,15 +13,15 @@ class Log:
         if choice != 'y' and choice != 'yes':
             if platform.system() == 'Linux': 
                 os.system('clear')
-                Screen.menu()
+                Screen()
 
             elif platform.system() == 'Darwin': 
                 os.system('clear')
-                Screen.menu()
+                Screen()
 
             elif platform.system() == 'Windows': 
                 os.system('cls')
-                Screen.menu()
+                Screen()
 
         elif platform.system() == 'Linux':
             print('\n\033[32m[+]\033[0m "ALERT" file was created in the desktop directory')
