@@ -3,7 +3,7 @@ import platform, re, subprocess, time
 from core import Log
 
 class FindDuplicateMac:
-    def run():
+    def __init__(self):
         print('\n\033[35m[*]\033[0m Press Ctrl+C to stop detection')
     
         while True:
