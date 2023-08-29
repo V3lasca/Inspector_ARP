@@ -26,6 +26,5 @@ Write this interpreter at the first line in inspector_arp.py
 Then
 ```
 chmod +x inspector_arp.py
-dos2unix inspector_arp.py
 ./inspector_arp.py
 ```
