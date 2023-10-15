@@ -33,7 +33,7 @@ python3 inspector_arp.py
 
 <p>Then</p>
 
-`
+``
 chmod +x inspector_arp.py
 ./inspector_arp.py
-`
+``
