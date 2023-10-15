@@ -31,7 +31,7 @@ python3 inspector_arp.py
 
 <img width='250' src='images/Interpreter.png' alt='Interpreter'>
 
-Then
+<p>Then</p>
 
 `
 chmod +x inspector_arp.py
