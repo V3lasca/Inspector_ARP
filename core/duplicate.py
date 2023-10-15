@@ -39,8 +39,8 @@ class FindDuplicateMac:
 
             group_table = {}
             # Groups MAC addresses with corresponding IP addresses 
-            for key, value in dict_table.items(): 
-                group_table.setdefault(value, set()).add(key)
+            for (ip, mac) in dict_table.items(): 
+                group_table.setdefault(mac, set()).add(ip)
             
             # Removes broadcast address
             while 'ff-ff-ff-ff-ff-ff' in group_table: 
@@ -48,20 +48,20 @@ class FindDuplicateMac:
             while 'ff:ff:ff:ff:ff:ff' in group_table: 
                 group_table.pop('ff:ff:ff:ff:ff:ff')
 
-            list_of_duplicate_mac_addr = [key for (key, value) in group_table.items() if len(value) > 1]
+            duplicate_mac_addr = [mac for (mac, ip) in group_table.items() if len(ip) > 1]
 
-            for i in list_of_duplicate_mac_addr: 
-                list_of_duplicate_mac_addr = str(i)
+            for i in duplicate_mac_addr: 
+                duplicate_mac_addr = str(i)
 
             try:
-                if list_of_duplicate_mac_addr in group_table:
-                    list_of_ip_addr = group_table[list_of_duplicate_mac_addr]
-                    list_of_ip_addr = ', '.join(list_of_ip_addr)
+                if duplicate_mac_addr in group_table:
+                    ip_addrs = group_table[duplicate_mac_addr]
+                    ip_addrs = ', '.join(ip_addrs)
 
                     print('\n\033[31m[!]\033[0m ARP Spoofing Attack Detected')
-                    print('\033[31m[!]\033[0m', f'{list_of_duplicate_mac_addr} belongs to > {list_of_ip_addr}')
+                    print('\033[31m[!]\033[0m', f'{duplicate_mac_addr} belongs to > {ip_addrs}')
 
-                    Log.log(f'{list_of_duplicate_mac_addr} belongs to > {list_of_ip_addr}')
+                    Log.log(f'{duplicate_mac_addr} belongs to > {ip_addrs}')
                     break
 
             except TypeError:
