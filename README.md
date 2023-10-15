@@ -12,7 +12,9 @@
   attacks from a <a href='https://www.proofpoint.com/us/threat-reference/threat-actor'>threat actor</a> (attacker).
 </p>
 
-I would like to give credit to <a href='https://github.com/saintvic20/ARP-SPOOF-DETECTOR'>saintvic20</a> during my research on creating this tool.
+<p>I would like to give credit to <a href='https://github.com/saintvic20/ARP-SPOOF-DETECTOR'>saintvic20</a> 
+  during my research on creating this tool.
+</p>
 
 <h2>Installation</h2>
 
