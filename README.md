@@ -1,7 +1,7 @@
 <h1>Inspector_ARP</h1>
 
 <div align='center'>
-  <img width='250' src='images/Dom_DiPierro.jpg' alt='Dominique "Dom" DiPierro'>
+  <a href='https://mrrobot.fandom.com/wiki/Dominique_DiPierro' <img width='250' src='images/Dom_DiPierro.jpg' alt='Dominique "Dom" DiPierro'></a>
 </div>
 
 <br>
