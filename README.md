@@ -1,14 +1,16 @@
 <h1>Inspector_ARP</h1>
 
 <div align='center'>
-  <a href='https://mrrobot.fandom.com/wiki/Dominique_DiPierro' 
+  <a href='https://mrrobot.fandom.com/wiki/Dominique_DiPierro'> 
     <img width='250' src='images/Dom_DiPierro.jpg' alt='Dominique "Dom" DiPierro'>
   </a>
 </div>
 
 <br>
 
-This program will help detect <a href='https://www.imperva.com/learn/application-security/arp-spoofing/'>ARP poisoning</a> attacks from a <a href='https://www.proofpoint.com/us/threat-reference/threat-actor'>threat actor</a> (attacker).
+<p>This program will help detect <a href='https://www.imperva.com/learn/application-security/arp-spoofing/'>ARP poisoning</a> 
+  attacks from a <a href='https://www.proofpoint.com/us/threat-reference/threat-actor'>threat actor</a> (attacker).
+</p>
 
 I would like to give credit to <a href='https://github.com/saintvic20/ARP-SPOOF-DETECTOR'>saintvic20</a> during my research on creating this tool.
 
