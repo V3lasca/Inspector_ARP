@@ -8,7 +8,8 @@
 
 <br>
 
-<p>This program will help detect <a href='https://www.imperva.com/learn/application-security/arp-spoofing/'>ARP poisoning</a> 
+<p>This program will help detect 
+  <a href='https://www.imperva.com/learn/application-security/arp-spoofing/'>ARP poisoning</a> 
   attacks from a <a href='https://www.proofpoint.com/us/threat-reference/threat-actor'>threat actor</a> (attacker).
 </p>
 
