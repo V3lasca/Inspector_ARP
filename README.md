@@ -21,7 +21,7 @@
 <h2>Installation</h2>
 
 ```
-git clone https://github.com/V3lasc/Inspector_ARP.git
+git clone https://github.com/V3lasca/Inspector_ARP.git
 cd Inspector_ARP
 python3 inspector_arp.py
 ```
