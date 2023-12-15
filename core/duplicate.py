@@ -47,7 +47,8 @@ class FindDuplicateMac:
                 group_table.pop('ff-ff-ff-ff-ff-ff')
             while 'ff:ff:ff:ff:ff:ff' in group_table: 
                 group_table.pop('ff:ff:ff:ff:ff:ff')
-
+            
+            # Checks for duplicate mac address(es)
             duplicate_mac_addr = [mac for (mac, ip) in group_table.items() if len(ip) > 1]
 
             for i in duplicate_mac_addr: 
