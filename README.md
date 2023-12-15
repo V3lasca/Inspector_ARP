@@ -23,9 +23,12 @@
 ```
 git clone https://github.com/V3lasca/Inspector_ARP.git
 cd Inspector_ARP
+```
+<h2>Usage</h2>
+
+```
 python3 inspector_arp.py
 ```
-
 <strong>or</strong>
 
 <p>Write this interpreter at the first line in <strong>inspector_arp.py</strong></p>
