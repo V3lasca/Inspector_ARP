@@ -31,7 +31,7 @@ python3 inspector_arp.py
 ```
 <strong>or</strong>
 
-<p>Write this interpreter at the first line in the <strong>inspector_arp.py</strong></p> file
+<p>Write this interpreter at the first line in the <strong>inspector_arp.py</strong> file.</p>
 
 <img width='250' src='images/Interpreter.png' alt='Interpreter'>
 
