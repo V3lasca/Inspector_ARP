@@ -2,7 +2,7 @@
 
 <div align='center'>
   <a href='https://mrrobot.fandom.com/wiki/Dominique_DiPierro'> 
-    <img width='250' src='images/asdf-removebg-preview (1).png' alt='Dominique "Dom" DiPierro'>
+    <img width='250' src='images/Dom_DiPierro.jpg' alt='Dominique "Dom" DiPierro'>
   </a>
 </div>
 
