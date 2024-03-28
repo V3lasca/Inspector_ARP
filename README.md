@@ -27,5 +27,12 @@ cd Inspector_ARP
 <h2>Usage</h2>
 
 ```
+python3 ./inspector_arp.py
+```
+
+<strong>or</strong>
+
+```
+chmod +x inspector_arp.py
 ./inspector_arp.py
 ```
