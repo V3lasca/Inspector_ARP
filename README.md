@@ -2,7 +2,7 @@
 
 <div align='center'>
   <a href='https://mrrobot.fandom.com/wiki/Dominique_DiPierro'> 
-    <img width='250' src='images/Dom_DiPierro.jpg' alt='Dominique "Dom" DiPierro'>
+    <img width='250' src='image/Dom_DiPierro.jpg' alt='Dominique "Dom" DiPierro'>
   </a>
 </div>
 
@@ -28,16 +28,4 @@ cd Inspector_ARP
 
 ```
 python3 inspector_arp.py
-```
-<strong>or</strong>
-
-<p>Write this interpreter at the first line in the <strong>inspector_arp.py</strong> file</p>
-
-<img width='250' src='images/Interpreter.png' alt='Interpreter'>
-
-<p>Then run these commands</p>
-
-```
-chmod +x inspector_arp.py
-./inspector_arp.py
 ```
