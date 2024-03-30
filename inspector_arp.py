@@ -50,7 +50,7 @@ def extract_arp_cache():
                     Menu()
                     
             elif choice == 'exit': 
-                sys.exit("\nBE SEEING YOU, \033[32mHACKER\033[0m")
+                sys.exit('\nBE SEEING YOU, \033[32mHACKER\033[0m')
 
             elif choice.strip() == '' : 
                 print('\033[31mEmpty Input\033[0m')
@@ -58,7 +58,7 @@ def extract_arp_cache():
             else: 
                 print('\033[31mWrong Input\033[0m')
         except KeyboardInterrupt:
-            sys.exit("\n\nBE SEEING YOU, \033[32mHACKER\033[0m")
+            sys.exit('\n\nBE SEEING YOU, \033[32mHACKER\033[0m')
         
 if __name__ == '__main__':
     extract_arp_cache()
