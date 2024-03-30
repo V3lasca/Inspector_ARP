@@ -42,7 +42,7 @@ class FindDuplicateMac:
             for (ip, mac) in dict_table.items(): 
                 group_table.setdefault(mac, set()).add(ip)
             
-            # Removes broadcast address
+            # Removes broadcast address to avoid false positives (errors)
             while 'ff-ff-ff-ff-ff-ff' in group_table: 
                 group_table.pop('ff-ff-ff-ff-ff-ff')
             while 'ff:ff:ff:ff:ff:ff' in group_table: 
